@@ -94,7 +94,9 @@ select {
 
 span {
   font-size: 1.8rem;
-  color:#E11D48
+  color:#E11D48;
+  font-weight: 500;
+  font-size: 2.4rem;
 }
 
 section {
