@@ -36,12 +36,12 @@ const Calculator = memo(function Calculator({ workouts, allowSound }) {
     playSound();
   }, [allowSound, duration]); // on duration derived state variable change effect will run
 
-  // useEffect(
-  //   function () {
-  //     document.title = `Your ${number} exercises workout`;
-  //   },
-  //   [number]
-  // );
+  useEffect(
+    function () {
+      document.title = `Your ${number} exercises workout`;
+    },
+    [number]
+  );
   // usE effect able to access the outside scope state variable even the parent component already rendered  only because of closure
 
   function handleDec() {
