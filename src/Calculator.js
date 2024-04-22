@@ -1,4 +1,4 @@
-import { memo, useEffect, useState } from "react";
+import { memo, useCallback, useEffect, useState } from "react";
 import clickSound from "./ClickSound.m4a";
 
 const Calculator = memo(function Calculator({ workouts, allowSound }) {
@@ -10,25 +10,47 @@ const Calculator = memo(function Calculator({ workouts, allowSound }) {
 
   const [duration, setDuration] = useState(0); // we want to change the duration
 
+  // const playSound =  useCallback(function () {
+  //   if (!allowSound) return;
+  //   const sound = new Audio(clickSound);
+  //   sound.play();
+  // },[allowSound])
+
   // const duration = (number * sets * speed) / 60 + (sets - 1) * durationBreak; // here its a derived state
   useEffect(() => {
     setDuration((number * sets * speed) / 60 + (sets - 1) * durationBreak);
+    // playSound() old method
   }, [number, sets, speed, durationBreak]);
 
   const mins = Math.floor(duration);
   const seconds = (duration - mins) * 60;
 
-  const playSound = function () {
-    if (!allowSound) return;
-    const sound = new Audio(clickSound);
-    sound.play();
-  };
+  // use effect for synchronising sound with duration change this is the best method beacuse memoizing the sound function and writing playsound is not a good method and on clicking the mute button it will reset the duration which we change with - + button beacuse allow sound function changes and it will re run the useeffect and it will set the duration back to normal beacuse we didnt chnage the 4 state
+
+  useEffect(() => {
+    function playSound() {
+      if (!allowSound) return;
+      const sound = new Audio(clickSound);
+      sound.play();
+    }
+    playSound();
+  }, [allowSound, duration]); // on duration derived state variable change effect will run
+
+  useEffect(
+    function () {
+      document.title = `Your ${number} exercises workout`;
+    },
+    [number]
+  ); 
+  // usE effect able to access the outside scope state variable even the parent component already rendered  only because of closure
 
   function handleDec() {
-    setDuration((duration) => duration>1?Math.ceil(duration) - 1:0);
+    setDuration((duration) => (duration > 1 ? Math.ceil(duration) - 1 : 0));
+    // playSound() old method
   }
   function handleInc() {
     setDuration((duration) => Math.floor(duration) + 1);
+    // playSound() old method
   }
 
   return (
