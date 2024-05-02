@@ -16,11 +16,12 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: linear-gradient(to right bottom, #09090B, #09090B);
+  background-image: linear-gradient(to right bottom, #09090b, #09090b);
 }
 
 main {
-  background-color: #1C1917;
+  max-width:100%;
+  background-color: #1c1917;
   padding: 5rem 8rem;
   border-radius: 9px;
   box-shadow: 0px 2.8px 2.8px rgba(0, 0, 0, 0.028),
@@ -39,7 +40,7 @@ h1 {
   line-height: 1;
   margin-bottom: 2rem;
   background-clip: text;
-  background-image: linear-gradient(to right bottom, #E11D48, #E11D48);
+  background-image: linear-gradient(to right bottom, #e11d48, #e11d48);
   color: transparent;
 }
 
@@ -49,14 +50,14 @@ time {
   text-align: center;
   margin: 0 auto;
   margin-bottom: 4rem;
-  
+
   /* background-color: #FEECEE; */
-  background-color:#E11D48;
+  background-color: #e11d48;
   border-radius: 9px;
   padding: 1rem;
   font-size: 1.4rem;
   font-weight: 700;
-  color: #FEECEE;
+  color: #feecee;
   text-transform: uppercase;
 }
 
@@ -78,23 +79,23 @@ label {
   font-size: 2.4rem;
   display: block;
   width: 20rem;
-  color:#E11D48
+  color: #e11d48;
 }
 
 select {
   font-family: inherit;
   font-size: 1.8rem;
   padding: 0.6rem;
-  color:#FEECEE;
+  color: #feecee;
   border: none;
-  
-  background-color:#E11D48;
+
+  background-color: #e11d48;
   border-radius: 5px;
 }
 
 span {
   font-size: 1.8rem;
-  color:#E11D48;
+  color: #e11d48;
   font-weight: 500;
   font-size: 2.4rem;
 }
@@ -104,7 +105,7 @@ section {
   align-items: center;
   justify-content: center;
   gap: 3rem;
-  background-color: #E11D48;
+  background-color: #e11d48;
   border-radius: 9px;
   padding: 1.6rem;
 }
@@ -114,7 +115,7 @@ p {
   font-weight: 900;
   text-align: center;
   background-clip: text;
-  background-image: linear-gradient(to right bottom, #FEECEE, #FEECEE);
+  background-image: linear-gradient(to right bottom, #feecee, #feecee);
   color: transparent;
 }
 
@@ -127,7 +128,7 @@ button {
   border-radius: 50%;
   border: none;
   background-color: white;
-  color: #E11D48;
+  color: #e11d48;
   font-weight: 900;
   font-size: 3rem;
   cursor: pointer;
@@ -140,4 +141,24 @@ button {
   background-color: transparent;
   font-size: 3.2rem;
 }
- 
+
+/* responsive design */
+@media screen and (max-width: 890px) {
+  html {
+    font-size: 50%;
+  }
+}
+@media screen and (max-width: 624px) {
+  html {
+    font-size: 30%;
+  }
+}
+@media screen and (max-width: 496px) {
+  html {
+    font-size: 25%;
+  }
+  main{
+    padding: 5rem 4rem;
+  }
+}
+
