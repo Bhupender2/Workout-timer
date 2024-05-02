@@ -155,7 +155,7 @@ button {
 }
 @media screen and (max-width: 496px) {
   html {
-    font-size: 25%;
+    font-size: 28%;
   }
   main{
     padding: 5rem 4rem;
